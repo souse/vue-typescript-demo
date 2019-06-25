@@ -1,3 +1,4 @@
+/**
 import Vue, { PluginObject } from 'vue';
 import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
@@ -93,3 +94,4 @@ class $request<T> {
     });  
   }
 }
+*/
