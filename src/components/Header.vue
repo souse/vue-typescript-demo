@@ -11,10 +11,11 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import { CreateElement } from 'vue';
+import { Vue, Component } from 'vue-property-decorator'
+import { CreateElement } from 'vue'
 
-import { Search } from 'vant';
+import { Search } from 'vant'
+// import 'vant/es/search/style/less'
 
 @Component({
   components: {
@@ -22,6 +23,6 @@ import { Search } from 'vant';
   }
 })
 export default class Header extends Vue {
-  query: string = '';
+  query: string = ''
 }
 </script>

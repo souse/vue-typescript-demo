@@ -2,7 +2,8 @@
   <section class="movie-container">
     <div class="main-block">
       <div class="avatar">
-        <img src="../../assets/auto.jpg" alt="电影图片">
+        <!-- <img src="../../assets/auto.jpg" alt="电影图片"> -->
+        <img :src="movie.images.medium" alt="电影图片">
       </div>
       <div class="content-wrapper">
         <div class="content">
