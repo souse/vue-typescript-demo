@@ -19,7 +19,7 @@ export default new Vuex.Store({
   actions: {
     async getMovieList(context: { commit: Commit, state: States }, type: string): Promise<any> {
       return searchMovies(type).then(res => {
-        console.log('searchMovies res => ', res)
+        // console.log('searchMovies res => ', res)
         context.commit('setMovieList', { list: res.subjects })
         return res
       })

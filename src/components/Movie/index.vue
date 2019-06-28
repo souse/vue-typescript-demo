@@ -11,12 +11,13 @@
           <div class="movie-detail">
             <div class="score">
               <strong>评分:</strong>
+              <span>{{ movie.rating.average }}</span>
             </div>
-            <div class="actor">主演：</div>
-            <div class="director">导演：</div>
+            <div class="actor">主演：{{ casts }}</div>
+            <div class="director">导演：{{ directors }}</div>
           </div>
         </div>
-        <van-button class="button">购票</van-button>
+        <van-button class="button" type="primary" size="small">购票</van-button>
       </div>
     </div>
   </section>
@@ -26,6 +27,7 @@
 import { Vue, Component, Prop, PropSync } from 'vue-property-decorator'
 import { Button } from 'vant'
 
+import { Person } from '../../utils/interface'
 import './index.scss'
 
 @Component({
@@ -39,6 +41,18 @@ export default class Movie extends Vue {
   get msrc(): string {
     // return this.movie['images']['medium'].split('.com')[1]
     return ''
+  }
+  
+  get casts(): string {
+    return this.getNames(this.movie['casts'])
+  }
+
+  get directors(): string {
+    return this.getNames(this.movie['directors'])
+  }
+
+  getNames(arr: Person[]): string {
+    return arr.map(a => a.name).join(',')
   }
 }
 </script>

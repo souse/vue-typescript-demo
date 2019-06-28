@@ -12,14 +12,17 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+.van-loading{
+  position: fixed !important;
+  top: 40%;
+  left: 50%;
+  margin-left: -15px;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 </style>

@@ -65,6 +65,11 @@ export interface Movie {
   images: ImageType
 }
 
+export interface Person {
+  name: string,
+  [propName: string]: any
+}
+
 /**
  * @description 电影集合
  * @author souse

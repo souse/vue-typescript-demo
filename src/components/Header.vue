@@ -2,9 +2,9 @@
   <div class="header-container">
     <div class="search-container">
       <van-search
-        v-model="query"
-        :clearable="true" 
         placeholder="请输入电影名称"
+        :clearable="true" 
+        @input="onInput"
       />
     </div>
   </div>
@@ -23,6 +23,16 @@ import { Search } from 'vant'
   }
 })
 export default class Header extends Vue {
-  query: string = ''
+  onInput(val) {
+    this.$emit('search', val)
+  }
 }
 </script>
+
+<style lang="scss">
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+} 
+</style>
