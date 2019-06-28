@@ -3,7 +3,8 @@
     <lux-header />
     <movie 
       v-for="(movie, index) in list" 
-      :key="index" 
+      :key="index"
+      :movie="movie"
     />
   </div>
 </template>
