@@ -1,6 +1,6 @@
 <template>
   <section class="movie-container">
-    <div class="main-block">
+    <div class="main-block" @click="onGoDetail(movie)">
       <div class="avatar">
         <!-- <img src="../../assets/auto.jpg" alt="电影图片"> -->
         <img :src="movie.images.medium" alt="电影图片">
@@ -17,7 +17,14 @@
             <div class="director">导演：{{ directors }}</div>
           </div>
         </div>
-        <van-button class="button" type="primary" size="small">购票</van-button>
+        <van-button 
+          class="button" 
+          type="primary" 
+          size="small"
+          @click.stop="onBuy(movie)"
+        >
+          购票
+        </van-button>
       </div>
     </div>
   </section>
@@ -25,9 +32,10 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, PropSync } from 'vue-property-decorator'
+import { Mutation } from 'vuex-class'
 import { Button } from 'vant'
 
-import { Person } from '../../utils/interface'
+import { Person, Movie as MV } from '../../utils/interface'
 import './index.scss'
 
 @Component({
@@ -36,23 +44,32 @@ import './index.scss'
   }
 })
 export default class Movie extends Vue {
-  @Prop({ default: () => {} }) readonly movie!: object
-  
+  @Prop({ default: () => {} }) readonly movie!: MV
+  @Mutation('setCurrentMovie') setCurrentMovie!: (v: object) => void
+
   get msrc(): string {
     // return this.movie['images']['medium'].split('.com')[1]
     return ''
   }
   
   get casts(): string {
-    return this.getNames(this.movie['casts'])
+    return this.getNames(this.movie['casts'] || [])
   }
 
   get directors(): string {
-    return this.getNames(this.movie['directors'])
+    return this.getNames(this.movie['directors'] || [])
   }
 
   getNames(arr: Person[]): string {
     return arr.map(a => a.name).join(',')
+  }
+
+  onGoDetail(v: MV): void {
+    this.setCurrentMovie({ v })
+    window.location.href = 'http://192.168.1.9:8083/detail'
+  }
+  onBuy(m: MV) {
+    alert(1);
   }
 }
 </script>

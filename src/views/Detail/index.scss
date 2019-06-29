@@ -1,0 +1,43 @@
+.detail-container {
+  margin: 0 15px;
+  .title {
+    margin: 30px 0 5px;
+    font-size: 24px;
+    line-height: 32px;
+    word-break: break-all;
+    text-align: left;
+  }
+  .subject-info {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+  }
+  .left {
+    p {
+      font-size: 14px;
+      color: #494949;
+      line-height: 1.6;
+      text-align: left;
+      margin: 15px 0 0;
+    }
+  }
+  .right {
+    flex: 1;
+    margin-left: 24px;
+    img {
+      width: 100px;
+      height: 142px;
+    }
+  }
+  .oprate {
+    display: flex;
+    margin-top: 20px;
+    button {
+      flex: 1;
+      font-size: 15px;
+      &:first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+}

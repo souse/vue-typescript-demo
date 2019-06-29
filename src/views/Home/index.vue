@@ -47,7 +47,9 @@ export default class Home extends Vue {
 
     v == '' ?
       this.mvs = list :
-      this.mvs = list.filter((l: MV) => l.title.indexOf(v) !== -1)
+      this.mvs = list.filter((l: MV) => {
+        if (l.title) return l.title.indexOf(v) !== -1
+      })
   }
 }
 </script>

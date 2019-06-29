@@ -31,7 +31,7 @@ interface Actor {
  * @date 2019-06-26
  * @interface Rating
  */
-interface Rating {
+export interface Rating {
   max: number,
   average: number,
   details: {
@@ -49,24 +49,24 @@ interface Rating {
  * @interface movie
  */
 export interface Movie {
-  title: string,
-  rating: Rating,
-  genres: string[],
-  casts: Actor[],
-  durations: string[],
-  collect_count: number,
-  mainland_pubdate: string,
-  has_video: boolean,
-  original_title: string,
-  subtype: string,
-  directors: Actor[],
-  pubdates: string[],
-  year: string,
-  images: ImageType
+  title?: string,
+  rating?: Rating,
+  genres?: string[],
+  casts?: Actor[],
+  durations?: string[],
+  collect_count?: number,
+  mainland_pubdate?: string,
+  has_video?: boolean,
+  original_title?: string,
+  subtype?: string,
+  directors?: Actor[],
+  pubdates?: string[],
+  year?: string,
+  images?: ImageType
 }
 
 export interface Person {
-  name: string,
+  name?: string,
   [propName: string]: any
 }
 
@@ -79,6 +79,7 @@ export interface Person {
  */
 export interface States {
   movieList?: Array<Movie>
+  currentMovie?: Movie | {}
 }
 
 

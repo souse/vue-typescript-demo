@@ -23,7 +23,7 @@ import { Search } from 'vant'
   }
 })
 export default class Header extends Vue {
-  onInput(val) {
+  onInput(val: string) {
     this.$emit('search', val)
   }
 }
