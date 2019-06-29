@@ -23,6 +23,7 @@ import { Getter } from 'vuex-class'
 import { Button, Toast, Icon } from 'vant'
 
 import Rating from '../../components/Rating/index.vue'
+import { WithRouter } from '../../utils'
 import { Movie } from '../../utils/interface'
 import './index.scss'
 
@@ -32,7 +33,7 @@ import './index.scss'
     [Button.name]: Button
   }
 })
-export default class Detail extends Vue {
+export default class Detail extends WithRouter {
   @Getter('currentMovie') movie!:  Movie
 
   get describle(): string {
@@ -44,9 +45,14 @@ export default class Detail extends Vue {
   }
 
   onOk() {
+    const _this = this;
+
     Toast({ 
       message: '欧了',
-      icon: 'like-o'
+      icon: 'like-o',
+      onClose() {
+        _this.$router.push('/')
+      }
     })
   }
 }

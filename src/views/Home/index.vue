@@ -11,7 +11,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 import { Action, State } from 'vuex-class'
 import { CreateElement, VNode } from 'vue'
 import { Loading} from 'vant'

@@ -35,7 +35,7 @@ import { Vue, Component, Prop, PropSync } from 'vue-property-decorator'
 import { Mutation } from 'vuex-class'
 import { Button } from 'vant'
 
-import { Person, Movie as MV } from '../../utils/interface'
+import { Person, Movie as MV, WithRoute } from '../../utils/interface'
 import './index.scss'
 
 @Component({
@@ -43,7 +43,7 @@ import './index.scss'
     [Button.name]: Button
   }
 })
-export default class Movie extends Vue {
+export default class Movie extends Vue implements WithRoute {
   @Prop({ default: () => {} }) readonly movie!: MV
   @Mutation('setCurrentMovie') setCurrentMovie!: (v: object) => void
 
@@ -66,7 +66,7 @@ export default class Movie extends Vue {
 
   onGoDetail(v: MV): void {
     this.setCurrentMovie({ v })
-    window.location.href = 'http://192.168.1.9:8083/detail'
+    this.$router.push('/detail')
   }
   onBuy(m: MV) {
     alert(1);

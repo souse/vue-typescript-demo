@@ -1,3 +1,8 @@
+import  VueRouter from 'vue-router'
+
+export interface WithRoute {
+  $router: VueRouter
+}
 
 /**
  * @description 图片描述
