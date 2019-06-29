@@ -1,7 +1,8 @@
-import  VueRouter from 'vue-router'
+import  VueRouter, { Route } from 'vue-router'
 
 export interface WithRoute {
-  $router: VueRouter
+  $router: VueRouter,
+  $route: Route
 }
 
 /**

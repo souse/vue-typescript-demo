@@ -68,8 +68,9 @@ export default class Movie extends Vue implements WithRoute {
     this.setCurrentMovie({ v })
     this.$router.push('/detail')
   }
-  onBuy(m: MV) {
-    alert(1);
+  onBuy(v: MV) {
+    this.setCurrentMovie({ v })
+    this.$router.push('/cart')
   }
 }
 </script>
